@@ -19,6 +19,7 @@ const SearchBar = () => {
         }
         .search_bar {
           border: none;
+          outline: none;
           padding: 20px 0px;
           border-bottom: 1px solid black;
         }

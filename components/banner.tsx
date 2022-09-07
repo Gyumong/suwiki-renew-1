@@ -10,8 +10,8 @@ const Banner = () => {
         </div>
         <img
           src="/assets/img/illust_banner.svg"
-          width={450}
-          height={450}
+          width={375}
+          height={375}
           alt="banner"
           className="bannerImg"
         />
@@ -20,8 +20,9 @@ const Banner = () => {
         .banner {
           display: flex;
           justify-content: center;
-          z-index: -1;
+          z-index: 1;
           background-color: #eee;
+          border-top: 1.5px solid rgb(224, 224, 224);
           width: 100%;
         }
         .bannerbox {
