@@ -1,26 +1,34 @@
+import { useState } from "react";
+import MainListModal from "./MainListModal";
+
 const LectureBox = (props: any) => {
+  const [modal, setModal] = useState(false);
   return (
     <div className="box">
-      <div className="header">
-        <span className="title">{props.lectureData.lectureName}</span>
-        <div className="type">{props.lectureData.lectureType}</div>
-      </div>
-      <div className="major">
-        {props.lectureData.majorType} | {props.lectureData.professor}
-      </div>
-      <div className="footer">
-        <div className="starpoint">
-          {props.lectureData.lectureTotalAvg.toFixed(1)}
+      <div className="content">
+        <div className="header">
+          <span className="title">{props.lectureData.lectureName}</span>
+          <div className="type">{props.lectureData.lectureType}</div>
         </div>
-        <div className="detail">자세히</div>
+        <div className="major">
+          {props.lectureData.majorType} | {props.lectureData.professor}
+        </div>
+        <div className="footer">
+          <div className="starpoint">
+            {props.lectureData.lectureTotalAvg.toFixed(1)}
+          </div>
+          <div className="detail" onClick={() => setModal(!modal)}>
+            {modal ? "간략히" : "자세히"}
+          </div>
+        </div>
       </div>
+      {modal ? <MainListModal lectureData={props.lectureData} /> : null}
       <style jsx>{`
         .box {
           display: flex;
           flex-direction: column;
           border: 1px solid #e0e0e0;
           border-radius: 10px;
-          padding: 14px 24px;
           margin-bottom: 10px;
           cursor: pointer;
         }
@@ -35,7 +43,7 @@ const LectureBox = (props: any) => {
           margin-top: 14px;
         }
         .title {
-          font-size: 1.1rem;
+          font-size: 18px;
         }
         .major {
           font-size: 14px;
@@ -57,6 +65,9 @@ const LectureBox = (props: any) => {
           font-size: 12px;
           text-decoration: underline;
           padding-left: 6px;
+        }
+        .content {
+          padding: 14px 24px;
         }
       `}</style>
     </div>
