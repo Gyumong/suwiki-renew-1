@@ -1,5 +1,6 @@
 import { useState } from "react";
 import MainListModal from "./MainListModal";
+import StarRatings from "react-star-ratings";
 
 const LectureBox = (props: any) => {
   const [modal, setModal] = useState(false);
@@ -14,6 +15,16 @@ const LectureBox = (props: any) => {
           {props.lectureData.majorType} | {props.lectureData.professor}
         </div>
         <div className="footer">
+          <StarRatings
+            rating={props.lectureData.lectureTotalAvg}
+            starRatedColor="#346cfd"
+            starDimension="20px"
+            starSpacing="0px"
+            numberOfStars={5}
+            name="rating"
+            svgIconPath="M17.563,21.56a1,1,0,0,1-.466-.115L12,18.765l-5.1,2.68a1,1,0,0,1-1.451-1.054l.974-5.676L2.3,10.7A1,1,0,0,1,2.856,8.99l5.7-.828L11.1,3A1.04,1.04,0,0,1,12.9,3l2.549,5.164,5.7.828A1,1,0,0,1,21.7,10.7l-4.124,4.02.974,5.676a1,1,0,0,1-.985,1.169Z"
+            svgIconViewBox="0 0 24 24"
+          />
           <div className="starpoint">
             {props.lectureData.lectureTotalAvg.toFixed(1)}
           </div>
@@ -59,6 +70,7 @@ const LectureBox = (props: any) => {
         .starpoint {
           color: #346cfd;
           font-size: 18px;
+          margin-left: 5px;
         }
         .detail {
           color: rgb(81, 81, 81);
