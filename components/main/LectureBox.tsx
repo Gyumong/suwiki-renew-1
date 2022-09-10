@@ -4,11 +4,15 @@ import StarRatings from "react-star-ratings";
 
 const LectureBox = (props: any) => {
   const [modal, setModal] = useState(false);
+  let lectureName: String = props.lectureData.lectureName;
+  if (lectureName.length > 15) {
+    lectureName = lectureName.substring(0, 15) + "...";
+  }
   return (
     <div className="box">
       <div className="content">
         <div className="header">
-          <span className="title">{props.lectureData.lectureName}</span>
+          <span className="title">{lectureName}</span>
           <div className="type">{props.lectureData.lectureType}</div>
         </div>
         <div className="major">
@@ -50,7 +54,7 @@ const LectureBox = (props: any) => {
         }
         .footer {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           margin-top: 14px;
         }
         .title {
@@ -70,13 +74,14 @@ const LectureBox = (props: any) => {
         .starpoint {
           color: #346cfd;
           font-size: 18px;
-          margin-left: 5px;
+          padding-left: 4px;
         }
         .detail {
           color: rgb(81, 81, 81);
           font-size: 12px;
           text-decoration: underline;
           padding-left: 6px;
+          margin-top: 4px;
         }
         .content {
           padding: 14px 24px;

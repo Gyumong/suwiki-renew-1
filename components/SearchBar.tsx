@@ -23,6 +23,9 @@ const SearchBar = () => {
           padding: 20px 0px;
           border-bottom: 1px solid black;
         }
+        input::placeholder {
+          font-family: "Pretendard-Regular";
+        }
       `}</style>
     </div>
   );
