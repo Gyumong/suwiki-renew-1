@@ -1,9 +1,8 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps } from "next";
 import Banner from "../components/banner";
 import SearchBar from "../components/SearchBar";
 import LectureContainer from "../components/main/LectureContainer";
 import { getMainLectureList, Lecture } from "../api/lecture";
-import { GetStaticProps } from "next";
 
 interface MainProps {
   lectureData: Lecture;
@@ -29,7 +28,7 @@ const Home = ({ lectureData }: MainProps) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const lectureData = await getMainLectureList();
   return {
     props: {

@@ -23,3 +23,11 @@ export const getMainLectureList = async () => {
   const data = await response.json();
   return data;
 };
+
+export const getSearchLectureList = async (search: any) => {
+  const response = await fetch(
+    `/lecture/search?searchValue=${search}&option=modifiedDate&page=1&majorType=`
+  );
+  const data = await response.json();
+  return data;
+};
