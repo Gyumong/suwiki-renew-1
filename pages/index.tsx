@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { GetServerSideProps } from "next";
 import Banner from "../components/banner";
 import SearchBar from "../components/SearchBar";
@@ -9,10 +10,11 @@ interface MainProps {
 }
 
 const Home = ({ lectureData }: MainProps) => {
+  const [searchValue, setSearchValue] = useState<string>("");
   return (
     <div className="container">
       <Banner />
-      <SearchBar />
+      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
       <LectureContainer lectureData={lectureData} />
       <style jsx>{`
         .container {

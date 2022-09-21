@@ -31,7 +31,6 @@ const LectureContainer = ({ lectureData }: LectureContainerProps) => {
           display: flex;
           justify-content: space-between;
           width: 60%;
-          margin-top: 30px;
         }
         .half {
           width: 49%;

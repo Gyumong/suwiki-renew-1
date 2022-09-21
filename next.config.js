@@ -4,8 +4,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        destination: "https://api.suwiki.kr/:path*",
         source: "/:path*",
+        destination: "https://api.suwiki.kr/:path*",
       },
     ];
   },

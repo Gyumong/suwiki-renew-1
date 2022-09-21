@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const baseURL = "https://api.suwiki.kr/lecture";
 
 export interface Lecture {
@@ -24,10 +26,17 @@ export const getMainLectureList = async () => {
   return data;
 };
 
-export const getSearchLectureList = async (search: any) => {
-  const response = await fetch(
-    `/lecture/search?searchValue=${search}&option=modifiedDate&page=1&majorType=`
+export const getSearchLectureList = async (
+  searchValue: string,
+  pageParam: number
+) => {
+  const response = await axios.get(
+    `/lecture/search?searchValue=${searchValue}&page=${pageParam}`
   );
-  const data = await response.json();
-  return data;
+  const res = response.data;
+  return {
+    data: res,
+    isLast: res.data.length < 10,
+    nextPage: pageParam + 1,
+  };
 };
