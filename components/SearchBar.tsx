@@ -1,17 +1,23 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 const SearchBar = ({ searchValue, setSearchValue }: any) => {
   const router = useRouter();
   const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      window.sessionStorage.setItem("searchValue", searchValue);
-      router.push({
-        pathname: "/search",
-        query: {
-          searchValue: searchValue,
-        },
-      });
+      if (!searchValue || searchValue.length < 2)
+        return alert("검색어는 두 글자 이상 입력해주세요.");
+      else {
+        window.sessionStorage.setItem("searchValue", searchValue);
+        router.push({
+          pathname: "/search",
+          query: {
+            searchValue: searchValue,
+          },
+        });
+      }
     }
   };
+  console.log(searchValue);
   return (
     <div className="search">
       <span className="search_text">강의평가 검색</span>
@@ -26,8 +32,8 @@ const SearchBar = ({ searchValue, setSearchValue }: any) => {
         .search {
           display: flex;
           flex-direction: column;
-          width: 60%;
           margin-bottom: 30px;
+          width: 100%;
         }
         .search_text {
           font-size: 1.5rem;

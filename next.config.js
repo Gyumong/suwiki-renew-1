@@ -1,6 +1,9 @@
 module.exports = {
   reactStrickMode: false,
   swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  },
   async rewrites() {
     return [
       {

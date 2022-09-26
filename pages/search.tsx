@@ -46,7 +46,7 @@ const Search = () => {
   if (status === "loading") return <Spinner />;
   if (status === "error") return <div>에러</div>;
   return (
-    <>
+    <div className="container">
       <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
       {data?.pages.map((page, index) => (
         <LectureContainer lectureData={page.data} key={index} />
@@ -54,7 +54,15 @@ const Search = () => {
       <div ref={ref} style={{ marginBottom: "10px" }}>
         {isFetchingNextPage ? <Spinner /> : null}
       </div>
-    </>
+      <style jsx>{`
+        .container {
+          width: 60%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      `}</style>
+    </div>
   );
 };
 export default Search;
