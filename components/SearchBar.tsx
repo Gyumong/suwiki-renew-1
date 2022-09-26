@@ -3,7 +3,7 @@ const SearchBar = ({ searchValue, setSearchValue }: any) => {
   const router = useRouter();
   const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      window.localStorage.setItem("searchValue", searchValue);
+      window.sessionStorage.setItem("searchValue", searchValue);
       router.push({
         pathname: "/search",
         query: {
