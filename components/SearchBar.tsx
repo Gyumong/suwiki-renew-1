@@ -17,7 +17,6 @@ const SearchBar = ({ searchValue, setSearchValue }: any) => {
       }
     }
   };
-  console.log(searchValue);
   return (
     <div className="search">
       <span className="search_text">강의평가 검색</span>

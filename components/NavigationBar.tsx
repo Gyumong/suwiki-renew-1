@@ -5,18 +5,20 @@ const NavigationBar = () => {
     <>
       <nav className="container">
         <Link href="/">
-          <a>
-            <img src="/assets/img/LOGO.png" />
-          </a>
+          <img src="/assets/img/LOGO.png" />
         </Link>
         <ul>
-          <li className="notice">공지사항</li>
           <Link href="/login">
-            <a>
-              <li className="login">로그인</li>
-            </a>
+            <button>공지사항</button>
           </Link>
-          <li className="signup">회원가입</li>
+
+          <Link href="/login">
+            <button>로그인</button>
+          </Link>
+
+          <Link href="/login">
+            <button className="signup">회원가입</button>
+          </Link>
         </ul>
       </nav>
       <style jsx>{`
@@ -32,10 +34,12 @@ const NavigationBar = () => {
         .container ul {
           display: flex;
         }
-        li {
-          list-style: none;
+        button {
+          border: none;
+          background: none;
           padding: 20px;
           cursor: pointer;
+          font-size: 16px;
         }
         .signup {
           color: #346cfd;

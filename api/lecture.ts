@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const baseURL = "https://api.suwiki.kr/lecture";
-
 export interface Lecture {
   count: number;
   data: [
@@ -21,9 +19,11 @@ export interface Lecture {
 }
 
 export const getMainLectureList = async () => {
-  const response = await fetch(`${baseURL}/all`);
-  const data = await response.json();
-  return data;
+  const response = await axios.get(`lecture/all`);
+  const res = response.data;
+  return {
+    data: res,
+  };
 };
 
 export const getSearchLectureList = async (
